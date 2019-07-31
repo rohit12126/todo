@@ -3,7 +3,7 @@
 @font-face {
   font-family: 'MayWilde';
   src: url('../fonts/MayWilde.eot');
-  src: url('../fonts/MayWilde.woff2') format('woff2'), url('../fonts/MayWilde.woff') format('woff'), url('../fonts/MayWilde.ttf') format('truetype'), url('../fonts/MayWilde.otf') format('otf');
+  src: url('../fonts/MayWilde.ttf') format('truetype'), url('../fonts/MayWilde.otf') format('otf');
 }
 
 

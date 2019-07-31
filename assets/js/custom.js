@@ -68,14 +68,16 @@ $( "#taskForm" ).submit(function( event ) {
 function getData() {
     var tasks = localStorage.getItem("tasks");
     tasks = JSON.parse(tasks);
-    tasks = tasks.reverse();        //Reverse task array to get latest task first
-    $("#taskList").html('');
-    $.each(tasks, function( index, value ) {
-        var task_name = value.name.charAt(0).toUpperCase() + value.name.slice(1);
-        var task_description = value.description.charAt(0).toUpperCase() + value.description.slice(1);
-        var task_date = value.date;
-        $("#taskList").append('<li class="text-tile"> <div class="text-sub-tile"> <a href="javascript:void(0);" class="delete_task" data-id="'+index+'"><img src="'+BASE_URL+'assets/images/close.svg" /></a><div class="text-heading">'+task_name+'</div><div class="date-wrap"><b>Date</b>: '+task_date+'</div> <p class="text-content">'+task_description+'</p> </div> </li>');
-    });
+    if(tasks){
+        tasks = tasks.reverse();        //Reverse task array to get latest task first
+        $("#taskList").html('');
+        $.each(tasks, function( index, value ) {
+            var task_name = value.name.charAt(0).toUpperCase() + value.name.slice(1);
+            var task_description = value.description.charAt(0).toUpperCase() + value.description.slice(1);
+            var task_date = value.date;
+            $("#taskList").append('<li class="text-tile"> <div class="text-sub-tile"> <a href="javascript:void(0);" class="delete_task" data-id="'+index+'"><img src="'+BASE_URL+'assets/images/close.svg" /></a><div class="text-heading">'+task_name+'</div><div class="date-wrap"><b>Date</b>: '+task_date+'</div> <p class="text-content">'+task_description+'</p> </div> </li>');
+        });
+    }
     return false;
 }
 $("body").on('click', '.delete_task', function() {
